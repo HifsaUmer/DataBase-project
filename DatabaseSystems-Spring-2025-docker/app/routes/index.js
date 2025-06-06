@@ -3,9 +3,9 @@ const router = express.Router();
 import { db } from "../db.js";
 
 
-router.get('/courses', async (req, res) => {
+router.get('/students', async (req, res) => {
     try {
-        const query = `SELECT * FROM course ORDER BY course_id`;
+        const query = `SELECT * FROM student ORDER BY regno`;
         const { rows } = await db.query(query);
         res.status(200).json(rows);
     } catch (err) {

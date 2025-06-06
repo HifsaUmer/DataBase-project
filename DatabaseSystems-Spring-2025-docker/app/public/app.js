@@ -1,14 +1,14 @@
 function App() {
     return {
         page: 1,
-        courses: [],
+        students: [],
         dept: {},
         course: {},
         depts: [],
-        async getCourses() {
-            const courses = (await fetch(`/api/courses`).then(res => res.json()));
-            console.log(courses);
-            this.courses = courses;
+        async getStudents() {
+            const students = (await fetch(`/api/students`).then(res => res.json()));
+            console.log(students);
+            this.students = students;
         },
         async getDept(dept_name) {
             console.log(dept_name);

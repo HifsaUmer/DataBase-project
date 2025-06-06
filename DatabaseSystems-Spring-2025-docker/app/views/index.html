@@ -43,27 +43,29 @@
     </style>
 </head>
 
-<body x-data="App()" x-init="getCourses()">
+<body x-data="App()" x-init="getStudents()">
     
-    <div class="col" x-show="courses.length !== 0 && page === 1">
-        <h2>Courses</h2>
+    <div class="col" x-show="students.length !== 0 && page === 1">
+        <h2>Students</h2>
         <table>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Dept. Name</th>
-                <th>Credits</th>
+                <th>Name </th>
+                <th>Deptartment</th>
+                <th>GPA</th>
+                <th>CGPA</th>
             </tr>
-            <template x-for="crs in courses">
+            <template x-for="id in students">
                 <tr>
-                    <td x-text="crs.course_id"></td>
+                    <td x-text="id.regno"></td>
                     <td>
-                        <a href="#" x-text="crs.title" @click="Edit(`${crs.course_id}`)"></a>
+                        <a href="#" x-text="id.title" @click="Edit(`${id.regno}`)"></a>
                     </td>
                     <td>
-                        <a href="#" x-text="crs.dept_name" @click="getDept(`${crs.dept_name}`)"></a>
+                        <a href="#" x-text="id.dept_name" @click="getDept(`${id.dept_name}`)"></a>
                     </td>
-                    <td x-text="crs.credits"></td>
+                    <td x-text="id.GPA"></td>
+                    <td x-text="id.CGPA"></td>
                 </tr>
             </template>
         </table>
@@ -94,13 +96,13 @@
             <tr>
                 <th>Id : </th>
                 <td>
-                    <input type="text" x-model="course.course_id" size="3"/>
+                    <input type="text" x-model="id.course_id" size="3"/>
                 </td>
             </tr>
             <tr>
-                <th>Title : </th>
+                <th>Semester : </th>
                 <td>
-                    <textarea x-model="course.title"></textarea>
+                    <textarea x-model="id.title"></textarea>
                 </td>
             </tr>
             <tr>
@@ -118,7 +120,13 @@
                 </td>
             </tr>
             <tr>
-                <th>Credits : </th>
+                <th>GPA : </th>
+                <td>
+                    <input type="text" x-model="course.credits" size="2"/>
+                </td>
+            </tr>
+             <tr>
+                <th>CGPA : </th>
                 <td>
                     <input type="text" x-model="course.credits" size="2"/>
                 </td>
